@@ -8,6 +8,7 @@
 		<title>简历 | 李升升</title>
 		<link rel="stylesheet" href="main?_inline">
 		<base target="_blank">
+		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 	</head>
 
 	<body>
@@ -135,6 +136,7 @@
 									</ul>
 								</div>
 							</div>
+
 							<!--项目:echarts-->
 							<div class="item">
 								<header class="item-hd">
@@ -210,6 +212,9 @@
 								<h2 class="section-title">技能</h2>
 								<span class="section-title-r"></span>
 							</header>
+							<div id="chart">
+
+							</div>
 							<div class="section-bd">
 
 								<!--技能:JS-->
@@ -323,3 +328,29 @@
 	</body>
 
 </html>
+<!--增加技能图表-->
+<script>
+	window.onload = function() {
+		var options = {
+			chart: {
+				height: 350,
+				type: 'radar',
+			},
+			series: [{
+				name: '技术分',
+				data: [85, 85, 60, 70, 75, 50],
+			}],
+			title: {
+				text: '技术雷达图'
+			},
+			labels: ['Vue', 'Jquery', 'React', 'Webpack', '小程序', 'Node']
+		}
+
+		var chart = new ApexCharts(
+			document.querySelector("#chart"),
+			options
+		);
+
+		chart.render();
+	}
+</script>
